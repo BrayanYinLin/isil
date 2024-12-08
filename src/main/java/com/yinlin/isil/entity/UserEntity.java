@@ -3,7 +3,7 @@ package com.yinlin.isil.entity;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "tb_usuario")
+@Table(name = "tb_user")
 public class UserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

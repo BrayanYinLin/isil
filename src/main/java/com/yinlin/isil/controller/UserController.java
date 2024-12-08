@@ -20,7 +20,7 @@ public class UserController {
         UserEntity authenticatedUser = userRepository.findByEmailAndPassword(email, password);
 
         if (authenticatedUser != null) {
-            return "main";
+            return "redirect:/home/main";
         } else {
             return "error";
         }
@@ -30,8 +30,12 @@ public class UserController {
     public String recover (@ModelAttribute("user") UserEntity user) {
         UserEntity targetUser = userRepository.findByEmail(user.getEmail());
 
-        user.setId(targetUser.getId());
-        userRepository.save(user);
+        if (targetUser == null) {
+            return "redirect:/home/main";
+        }
+
+        targetUser.setPassword(user.getPassword());
+        userRepository.save(targetUser);
 
         return "redirect:/home/main";
     }

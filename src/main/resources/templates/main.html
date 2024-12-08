@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: system-ui, Arial, sans-serif;
+        }
+
+        main {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <a th:href="@{/shop}">Administrar Tiendas</a>
+    </main>
+</body>
+</html>

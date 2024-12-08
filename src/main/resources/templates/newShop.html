@@ -75,24 +75,19 @@
 <body>
 <div class="container">
     <h1>Formulario de Tienda</h1>
-    <form action="#" method="POST">
+    <form th:action="@{/shop/create}" method="POST" th:object="${shop}">
         <label for="direccion">Dirección:</label>
-        <input type="text" id="direccion" name="direccion" required>
+        <input type="text" id="direccion" th:field="*{address}" required>
 
         <label for="distrito">Distrito:</label>
-        <input type="text" id="distrito" name="distrito" required>
+        <input type="text" id="distrito" th:field="*{distrit}" required>
 
         <label for="aforo">Aforo:</label>
-        <input type="number" id="aforo" name="aforo" min="1" required>
+        <input type="number" id="aforo" th:field="*{capacity}" min="1" required>
 
         <label for="jefe_tienda">Jefe de Tienda:</label>
-        <select id="jefe_tienda" name="jefe_tienda" required>
-            <option value="">Seleccione un jefe de tienda</option>
-            <option value="1">Juan Pérez</option>
-            <option value="2">María García</option>
-            <option value="3">Carlos Rodríguez</option>
-            <option value="4">Ana Martínez</option>
-            <option value="5">Luis Sánchez</option>
+        <select id="jefe_tienda" th:field="*{partner}" required>
+            <option th:each="boss : ${bosses}" th:value="${boss.id}" th:text="${boss.names}"></option>
         </select>
 
         <button type="submit">Enviar</button>

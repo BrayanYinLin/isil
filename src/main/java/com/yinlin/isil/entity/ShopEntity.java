@@ -6,10 +6,13 @@ import jakarta.persistence.*;
 @Table(name = "tb_tienda")
 public class ShopEntity {
     @Id
+    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
     @Column(name = "direccion")
     String address;
+    @Column(name= "distrito")
+    String distrit;
     @Column(name = "aforo")
     int capacity;
     @ManyToOne
@@ -46,5 +49,13 @@ public class ShopEntity {
 
     public void setPartner(PartnerEntity partner) {
         this.partner = partner;
+    }
+
+    public String getDistrit() {
+        return distrit;
+    }
+
+    public void setDistrit(String distrit) {
+        this.distrit = distrit;
     }
 }
