@@ -37,6 +37,6 @@ public class UserController {
         targetUser.setPassword(user.getPassword());
         userRepository.save(targetUser);
 
-        return "redirect:/home/main";
+        return "redirect:/";
     }
 }
